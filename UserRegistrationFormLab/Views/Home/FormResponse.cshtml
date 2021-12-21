@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "FormResponse";
+    DateTime rn = DateTime.Now;
+    string message = $"The day's info: {rn}";
+}
+
+<h1>Happy you joined! :D</h1>
+@message
+
+Nice to see you here @ViewBag.first @ViewBag.last !! <hr />
+
+This is your Username: @ViewBag.username. Don't forget it!

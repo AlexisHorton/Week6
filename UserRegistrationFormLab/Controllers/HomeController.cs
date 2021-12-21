@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MVCDemo1.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using UserRegistrationFormLab.Models;
 
-namespace MVCDemo1.Controllers
+namespace UserRegistrationFormLab.Controllers
 {
     public class HomeController : Controller
     {
@@ -25,37 +25,24 @@ namespace MVCDemo1.Controllers
             return View();
         }
 
-        public IActionResult Welcome()
+        public IActionResult RegistrationForm()
         {
-            //return Content("Welcome!");
-            ViewBag.RightNow = DateTime.Now;
+            return View();
+        }
+        public IActionResult FormResponse(string first, string last, string email, string username, string password)
+        {
+            ViewBag.first = first;
+            ViewBag.last = last;
+            ViewBag.email = email;
+            ViewBag.username = username;
+            ViewBag.password = password;
+            HomeController.username = $"Hola {username}!";
             return View();
         }
 
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        public IActionResult GetForm()
-        {
-            return View();
-        }
-        public IActionResult FormResponse(string first, string last, string pword)
-        {
-            if (first == "Sally" || first == "Fred")
-            {
-                ViewBag.first = first;
-                ViewBag.last = last;
-                ViewBag.pword = pword;
-                HomeController.username = $"{first} {last}";
-                return View();
-            }
-            else
-            {
-                return View("FormError");
-            }
-
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
