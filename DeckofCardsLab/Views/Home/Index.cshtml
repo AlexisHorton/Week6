@@ -1,0 +1,30 @@
+﻿@model DrawCards
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1>
+    Here are your cards:
+</h1> <br />    
+
+  <table>
+      <thead>
+              <tr>
+                  <th>Value</th>
+                  <th>Suit</th>
+                  <th>Image</th>
+              </tr>
+      </thead>
+
+      <tbody>
+          @foreach (CardInfo card in Model.cards)
+          {
+                <tr>
+                      <td>@card.value</td>
+                      <td>@card.suit</td>
+                      <td> <img src="@card.image"/></td>
+                </tr>
+              }
+      </tbody>
+  </table>
